@@ -6,7 +6,7 @@ ano_nascimento = 2025 - Idade
 maior_de_idade = Idade >= 18
 altura_metros = 1.80
 peso_kg = 108
-imc = peso_kg / (altura_metros ** 2)
+imc = peso_kg / int(altura_metros ** 2)
 
 print("Nome:", nome)
 print("Sobrenome:", sobrenome)
