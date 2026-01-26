@@ -1,0 +1,22 @@
+{
+  "name": "Diogo Ribeiro",
+  "surname": "Motta",
+  "address": [
+    {
+      "street": "S1",
+      "number": 55
+    },
+    {
+      "street": "S2",
+      "number": 7
+    }
+  ],
+  "height": 1.8,
+  "favorite numbers": [
+    5,
+    777,
+    17
+  ],
+  "dev": true,
+  "nothing": null
+}
