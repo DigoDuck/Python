@@ -1,4 +1,5 @@
 import os
+import json
 
 def list_(tasks):
     print()
@@ -39,12 +40,30 @@ def add(task,tasks):
         return
     tasks.append(task)
     
-tasks = []
+def read(tasks, path):
+    data = []
+    try:
+        with open(path, "r", encoding="utf8") as a_file:
+            data = json.load(a_file)
+    except FileNotFoundError:
+        print("File does not exist")
+        save(tasks, path)
+    return data
+    
+def save(tasks, path):
+    with open(path, "w", encoding="utf8") as a_file:
+            data = json.dump(tasks, a_file, indent=2,
+             ensure_ascii=False)
+    return data
+    
+FILE_PATH = "task_list.json"
+tasks = read([], FILE_PATH)
 redo_tasks = []
 
 while True:
     print("commands: list, undo, redo, exit, clear")
     user_input = input("type one task or command: ")
+    save(tasks, FILE_PATH)
     
     if user_input == "list":
         list_(tasks)
