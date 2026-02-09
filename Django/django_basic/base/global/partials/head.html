@@ -1,7 +1,10 @@
-<!doctype html>
+{% load static %}<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>{{title}}Name of the Site</title>
+    <link rel="stylesheet" href="{% static 'home/css/blue.css' %}" />
+    <link rel="stylesheet" href="{% static 'global/css/red.css' %}" />
   </head>
+</html>
