@@ -3,7 +3,6 @@ from django.shortcuts import render
 from blog.data import posts
 
 def blog(request):
-    print("blog")
     
     context = {
         # 'text': 'Hello Blog',
@@ -12,6 +11,18 @@ def blog(request):
     
     return render(
         request,
+        "blog/index.html",
+        context)
+    
+def post(req, id):
+    
+    context = {
+        # 'text': 'Hello Blog',
+        'posts': posts
+    }
+    
+    return render(
+        req,
         "blog/index.html",
         context)
 
