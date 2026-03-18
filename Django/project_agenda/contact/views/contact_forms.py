@@ -1,13 +1,5 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django import forms
-from contact.models import Contact
-
-class ContactForm(forms.ModelForm):
-    class Meta:
-        model = Contact
-        fields =(
-            'first_name', 'last_name', 'phone',
-        )
+from django.shortcuts import render
+from contact.forms import ContactForm
 
 def create(req):    
     if req.method == 'POST':
