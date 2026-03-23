@@ -292,7 +292,11 @@ svg {
   font-size: var(--smaller-font-size);
 }
 
+
 .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--link-dark-color);
   color: var(--clr-white);
   font-weight: bold;
@@ -301,6 +305,10 @@ svg {
   border-radius: var(--default-border-radius);
   cursor: pointer;
   transition: filter var(--transition-fast) ease-in-out;
+  text-decoration: none;
+  font-size: var(--small-font-size);
+  line-height: 1;
+  font-family: inherit;
 }
 
 .btn:hover {
@@ -311,4 +319,21 @@ svg {
 .btn:active {
   filter: brightness(80%);
   box-shadow: 0 0 5px var(--link-dark-color);
+  outline: none;
+}
+
+.btn-delete {
+  background-color: tomato;
+}
+
+.contact-links {
+  margin-block: calc(var(--small-font-size) * 2);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing);
+}
+
+.contact-links form {
+  display: flex;
+  margin: 0;
 }
