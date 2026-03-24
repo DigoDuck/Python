@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
+from django.contrib import auth, messages
 from contact.forms import RegisterForm
+from django.contrib.auth.forms import AuthenticationForm
 
 def register(req):
     form = RegisterForm()
@@ -11,7 +12,7 @@ def register(req):
         if form.is_valid():
             form.save()
             messages.success(req, 'Usuário Registado')
-            return redirect('contact:index')
+            return redirect('contact:login')
     
     return render(
         req,
@@ -20,3 +21,28 @@ def register(req):
             'form': form,
         }
     )
+    
+def login_view(req):
+    form = AuthenticationForm(req)
+
+    if req.method == 'POST':
+        form = AuthenticationForm(req, data=req.POST)
+        
+        if form.is_valid():
+            user = form.get_user()
+            auth.login(req, user)
+            messages.success(req, 'Logado com sucesso')
+            return redirect('contact:index')
+        messages.error(req, 'Invalid Login')
+    
+    return render(
+        req,
+        'contact/login.html',
+        {
+            'form': form,
+        }
+    )
+    
+def logout_view(req):
+    auth.logout(req)
+    return redirect('contact:login')
