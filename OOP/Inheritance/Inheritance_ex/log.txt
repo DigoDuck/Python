@@ -1,0 +1,5 @@
+Success: Deu certo! (LogFileMixin)
+Error: Deu erro! (LogFileMixin)
+Success: Deu certo! (LogFileMixin)
+Error: Deu erro! (LogFileMixin)
+Success: Deu certo! (LogFileMixin)
